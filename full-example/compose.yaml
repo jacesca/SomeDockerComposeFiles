@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    depends_on:
+      - redis
+  redis:
+    image: "redis:alpine"
+
+# # Start the service
+# # $ docker compose up -d
+
+# # Review logs
+# # $ docker compose logs
+
+# # Stop the service
+# # $ docler compose down

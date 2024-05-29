@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    container_name: local_pgdb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user-name
+      POSTGRES_PASSWORD: strong-password
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
+      PGADMIN_DEFAULT_PASSWORD: strong-password
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
+
+# # To start the service: 
+# # $ docker compose -f .\docker-compose\another-docker-compose.yaml up -d
+
+# A running example
+# Then go to http://localhost:8888/
+
+# # To down the service:
+# # $ docker compose -f .\docker-compose\another-docker-compose.yaml down

@@ -1,0 +1,22 @@
+services:
+  # Specify the resource name
+  primary:
+    
+    # Define a container name
+    container_name: webapp
+    
+    # Use the proper image
+    image: abishekraj/test_app:2.0
+    
+    # Define the correct entries to forward ports
+    ports:
+      - "80:80"
+
+
+# # To start the service: 
+# # $ docker compose -f .\docker-compose\test-app-docker-compose.yaml up -d
+
+# # Then go to http://localhost/
+
+# # To down the service
+# # $ docker compose -f .\docker-compose\test-app-docker-compose.yaml down
