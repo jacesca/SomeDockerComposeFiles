@@ -21,10 +21,10 @@ CMD ["flask", "run"]
 # # $ docker build -t dataservice .
 
 # # Create the network
-# # $ docker network create data_net
+# # $ docker network create --subnet 172.26.0.0/16 data_net
 
 # # Run the image with the data volume detail and port exposed
-# # $ docker run --name dataservice --network data_net -p 5000:5000 -v <full-path c:/...>/datasets:/data/ -d dataservice
+# # $ docker run --name dataservice --network data_net -ip 172.26.0.2 -p 5000:5000 -v <full-path c:/...>/datasets:/data/ -d dataservice
 
 # # Verify the status of the service
 # # $ python code/verify-app-up.py
